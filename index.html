@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Josh2Studio — Creative Digital Agency</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js" defer></script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════ PRELOADER ══════════════════════════════════════ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">Josh2<span>Studio</span></div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ CUSTOM CURSOR ══════════════════════════════════════ -->
+  <div id="cursor-outer"></div>
+  <div id="cursor-inner"></div>
+
+  <!-- ══════════════════════════════════════ NAVIGATION ══════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">Josh2<span>Studio</span></a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link hover-target">About</a>
+        <a href="#services" class="nav-link hover-target">Services</a>
+        <a href="#portfolio" class="nav-link hover-target">Portfolio</a>
+        <a href="#content" class="nav-link hover-target">Content</a>
+        <a href="#contact" class="nav-link hover-target">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta hover-target">Hire Us</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link hover-target">About</a>
+    <a href="#services" class="mobile-link hover-target">Services</a>
+    <a href="#portfolio" class="mobile-link hover-target">Portfolio</a>
+    <a href="#content" class="mobile-link hover-target">Content</a>
+    <a href="#contact" class="mobile-link hover-target">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════════ HERO ══════════════════════════════════════ -->
+  <section id="hero">
+    <!-- Three.js Canvas for 3D Background -->
+    <canvas id="hero-canvas"></canvas>
+    <!-- Gradient Overlays -->
+    <div class="hero-overlay"></div>
+    <div class="hero-glow-left"></div>
+    <div class="hero-glow-right"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span class="mono-text">Creative Digital Agency</span>
+      </div>
+      <h1 class="hero-headline">
+        <span class="split-line">We Create Digital</span>
+        <span class="split-line gradient-text">Experiences</span>
+        <span class="split-line">That <em>Stand Out</em></span>
+      </h1>
+      <p class="hero-sub">From immersive web experiences to scroll-stopping visuals — Josh2Studio builds brands that command attention in the digital age.</p>
+      <div class="hero-ctas">
+        <a href="#portfolio" class="btn-primary hover-target">
+          <span>View Portfolio</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-ghost hover-target">Hire Josh2Studio</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-val="80">0</span><span>+</span><p>Clients</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-val="150">0</span><span>+</span><p>Projects</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-val="5">0</span><span>yrs</span><p>Experience</p></div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="mono-text">Scroll</span>
+      <div class="scroll-line"><div class="scroll-dot"></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ ABOUT ══════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left reveal-left">
+          <div class="section-tag"><span class="tag-dot"></span>About Us</div>
+          <h2 class="section-headline">A Studio Built on <span class="gradient-text">Bold Ideas</span></h2>
+          <p class="about-body">Josh2Studio is a full-spectrum creative agency blending cutting-edge technology with human storytelling. We don't just design — we engineer digital presence that converts, inspires, and lasts.</p>
+          <p class="about-body">From a single logo to a full digital ecosystem, we obsess over every pixel, every word, and every interaction that represents your brand.</p>
+          <a href="#services" class="btn-outline hover-target">Explore Our Work</a>
+        </div>
+        <div class="about-right reveal-right">
+          <div class="about-card-stack">
+            <div class="about-feature-card glass-card tilt-card">
+              <div class="feature-icon">⚡</div>
+              <h4>Performance-First Design</h4>
+              <p>Every visual decision serves a purpose — speed, clarity, and conversion.</p>
+            </div>
+            <div class="about-feature-card glass-card tilt-card accent-card">
+              <div class="feature-icon">🎯</div>
+              <h4>Strategy-Led Creativity</h4>
+              <p>We blend brand thinking with design craft so your business stands out.</p>
+            </div>
+            <div class="about-feature-card glass-card tilt-card">
+              <div class="feature-icon">🌐</div>
+              <h4>Digital-Native Studio</h4>
+              <p>Built for the social era — content, code, and campaigns under one roof.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ SERVICES ══════════════════════════════════════ -->
+  <section id="services" class="section dark-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-tag"><span class="tag-dot"></span>What We Do</div>
+        <h2 class="section-headline">Services Built for <span class="gradient-text">Impact</span></h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card glass-card tilt-card reveal-up" data-delay="0">
+          <div class="service-num mono-text">01</div>
+          <div class="service-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="18" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="4" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="23" cy="23" r="5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Graphic Design</h3>
+          <p>Flyers, posters, logos, and brand identity systems crafted for maximum visual impact across every platform.</p>
+          <div class="service-tags">
+            <span>Logos</span><span>Posters</span><span>Branding</span>
+          </div>
+          <div class="service-arrow hover-target">→</div>
+        </div>
+
+        <div class="service-card glass-card tilt-card reveal-up" data-delay="0.1">
+          <div class="service-num mono-text">02</div>
+          <div class="service-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="3" y="6" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 24L10 28M20 24L22 28M10 28H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M8 14L13 11L17 15L22 10L26 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Web Development</h3>
+          <p>Fast, beautiful, conversion-optimized websites and web apps — from landing pages to full digital platforms.</p>
+          <div class="service-tags">
+            <span>Landing Pages</span><span>Web Apps</span><span>SEO</span>
+          </div>
+          <div class="service-arrow hover-target">→</div>
+        </div>
+
+        <div class="service-card glass-card tilt-card reveal-up featured-service" data-delay="0.2">
+          <div class="service-badge">Most Popular</div>
+          <div class="service-num mono-text">03</div>
+          <div class="service-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M6 28C6 22.477 10.477 18 16 18C21.523 18 26 22.477 26 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M22 4L26 8M26 4L22 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Content Creation</h3>
+          <p>Inspirational, edifying content for Facebook and social platforms — built to grow communities and spark engagement.</p>
+          <div class="service-tags">
+            <span>Facebook</span><span>Social Media</span><span>Video</span>
+          </div>
+          <div class="service-arrow hover-target">→</div>
+        </div>
+
+        <div class="service-card glass-card tilt-card reveal-up" data-delay="0.3">
+          <div class="service-num mono-text">04</div>
+          <div class="service-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4L20 12H28L22 17L25 26L16 20L7 26L10 17L4 12H12L16 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Brand Strategy</h3>
+          <p>We craft cohesive brand identities — voice, visual language, and digital marketing collateral that resonates and converts.</p>
+          <div class="service-tags">
+            <span>Identity</span><span>Marketing</span><span>Strategy</span>
+          </div>
+          <div class="service-arrow hover-target">→</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ PORTFOLIO ══════════════════════════════════════ -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-tag"><span class="tag-dot"></span>Our Work</div>
+        <h2 class="section-headline">Selected <span class="gradient-text">Projects</span></h2>
+      </div>
+      <div class="portfolio-filter reveal-up">
+        <button class="filter-btn active hover-target" data-filter="all">All</button>
+        <button class="filter-btn hover-target" data-filter="design">Design</button>
+        <button class="filter-btn hover-target" data-filter="web">Web</button>
+        <button class="filter-btn hover-target" data-filter="content">Content</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item tilt-card reveal-up" data-cat="design" data-delay="0">
+          <div class="portfolio-img" style="background: linear-gradient(135deg,#0a0a1a 0%,#0d1b3e 50%,#1a0533 100%)">
+            <div class="port-placeholder">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="25" stroke="#00f5ff" stroke-width="1.5" stroke-dasharray="4 4"/><rect x="20" y="20" width="20" height="20" rx="3" stroke="#a855f7" stroke-width="1.5"/><circle cx="30" cy="30" r="5" fill="#00f5ff" fill-opacity="0.3"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-cat mono-text">Brand Identity</span>
+            <h4>Nexus Brand System</h4>
+          </div>
+          <div class="portfolio-hover-overlay">
+            <span class="port-view hover-target">View Project ↗</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item tilt-card reveal-up large-item" data-cat="web" data-delay="0.1">
+          <div class="portfolio-img" style="background: linear-gradient(135deg,#001a12 0%,#003328 50%,#0a1a2e 100%)">
+            <div class="port-placeholder">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="8" y="15" width="44" height="30" rx="3" stroke="#00f5ff" stroke-width="1.5"/><path d="M20 25L28 20L34 26L42 18" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="44" cy="18" r="3" fill="#00f5ff" fill-opacity="0.4"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-cat mono-text">Web Development</span>
+            <h4>TechFlow E-Commerce Platform</h4>
+          </div>
+          <div class="portfolio-hover-overlay">
+            <span class="port-view hover-target">View Project ↗</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item tilt-card reveal-up" data-cat="content" data-delay="0.2">
+          <div class="portfolio-img" style="background: linear-gradient(135deg,#1a0a00 0%,#2d1500 50%,#1a0d2e 100%)">
+            <div class="port-placeholder">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="12" y="10" width="36" height="40" rx="4" stroke="#00f5ff" stroke-width="1.5"/><path d="M20 22H40M20 30H34M20 38H28" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-cat mono-text">Content Strategy</span>
+            <h4>FaithRise Social Campaign</h4>
+          </div>
+          <div class="portfolio-hover-overlay">
+            <span class="port-view hover-target">View Project ↗</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item tilt-card reveal-up" data-cat="design" data-delay="0.3">
+          <div class="portfolio-img" style="background: linear-gradient(135deg,#0a001a 0%,#1a003d 50%,#000d1a 100%)">
+            <div class="port-placeholder">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><polygon points="30,10 50,45 10,45" stroke="#00f5ff" stroke-width="1.5" stroke-linejoin="round"/><polygon points="30,20 43,40 17,40" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="1"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-cat mono-text">Poster Design</span>
+            <h4>Elevation Church Series</h4>
+          </div>
+          <div class="portfolio-hover-overlay">
+            <span class="port-view hover-target">View Project ↗</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item tilt-card reveal-up large-item" data-cat="web" data-delay="0.4">
+          <div class="portfolio-img" style="background: linear-gradient(135deg,#00101a 0%,#001f35 50%,#0d001a 100%)">
+            <div class="port-placeholder">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="#00f5ff" stroke-width="1.5"/><path d="M30 8C30 8 20 18 20 30C20 42 30 52 30 52C30 52 40 42 40 30C40 18 30 8 30 8Z" stroke="#a855f7" stroke-width="1.5"/><path d="M8 30H52" stroke="#00f5ff" stroke-width="1" stroke-dasharray="3 3"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-cat mono-text">Web Development</span>
+            <h4>GlobalReach Ministry Portal</h4>
+          </div>
+          <div class="portfolio-hover-overlay">
+            <span class="port-view hover-target">View Project ↗</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item tilt-card reveal-up" data-cat="design" data-delay="0.5">
+          <div class="portfolio-img" style="background: linear-gradient(135deg,#001a10 0%,#00290f 50%,#0a1a00 100%)">
+            <div class="port-placeholder">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="15" y="15" width="30" height="30" rx="15" stroke="#00f5ff" stroke-width="1.5"/><path d="M22 30L28 36L38 24" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-cat mono-text">Logo Design</span>
+            <h4>Verdant Eco Brand Mark</h4>
+          </div>
+          <div class="portfolio-hover-overlay">
+            <span class="port-view hover-target">View Project ↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ CONTENT SECTION ══════════════════════════════════════ -->
+  <section id="content" class="section dark-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-tag"><span class="tag-dot"></span>Content Studio</div>
+        <h2 class="section-headline">Content That <span class="gradient-text">Moves People</span></h2>
+        <p class="section-sub">We produce inspirational and edifying content for Facebook and social platforms — from viral posts to full campaign strategies.</p>
+      </div>
+      <div class="content-showcase">
+        <div class="content-card-row">
+
+          <div class="content-thumb glass-card tilt-card reveal-up" data-delay="0">
+            <div class="thumb-preview" style="background:linear-gradient(135deg,#0d0020,#1a0040)">
+              <div class="thumb-inner">
+                <div class="thumb-icon">✨</div>
+                <p class="thumb-title">Daily Inspiration Post</p>
+                <div class="thumb-meta mono-text">Facebook · 12K Reach</div>
+              </div>
+              <div class="thumb-stats">
+                <span>❤️ 847</span>
+                <span>↗ 203 Shares</span>
+              </div>
+            </div>
+            <div class="content-thumb-label">
+              <span class="mono-text">Motivational Content</span>
+            </div>
+          </div>
+
+          <div class="content-thumb glass-card tilt-card reveal-up featured-thumb" data-delay="0.1">
+            <div class="thumb-preview" style="background:linear-gradient(135deg,#001a2e,#003355)">
+              <div class="thumb-inner">
+                <div class="thumb-icon">🎬</div>
+                <p class="thumb-title">Brand Story Reel</p>
+                <div class="thumb-meta mono-text">Multi-Platform · 34K Views</div>
+              </div>
+              <div class="thumb-stats">
+                <span>❤️ 2.1K</span>
+                <span>↗ 890 Shares</span>
+              </div>
+            </div>
+            <div class="content-thumb-label">
+              <span class="mono-text">Video Content</span>
+            </div>
+          </div>
+
+          <div class="content-thumb glass-card tilt-card reveal-up" data-delay="0.2">
+            <div class="thumb-preview" style="background:linear-gradient(135deg,#1a000d,#330019)">
+              <div class="thumb-inner">
+                <div class="thumb-icon">📖</div>
+                <p class="thumb-title">Weekly Devotional Series</p>
+                <div class="thumb-meta mono-text">Facebook · 8K Reach</div>
+              </div>
+              <div class="thumb-stats">
+                <span>❤️ 612</span>
+                <span>↗ 145 Shares</span>
+              </div>
+            </div>
+            <div class="content-thumb-label">
+              <span class="mono-text">Edifying Content</span>
+            </div>
+          </div>
+
+          <div class="content-thumb glass-card tilt-card reveal-up" data-delay="0.3">
+            <div class="thumb-preview" style="background:linear-gradient(135deg,#001a12,#003322)">
+              <div class="thumb-inner">
+                <div class="thumb-icon">🚀</div>
+                <p class="thumb-title">Product Launch Campaign</p>
+                <div class="thumb-meta mono-text">Instagram · 21K Reach</div>
+              </div>
+              <div class="thumb-stats">
+                <span>❤️ 1.4K</span>
+                <span>↗ 567 Shares</span>
+              </div>
+            </div>
+            <div class="content-thumb-label">
+              <span class="mono-text">Marketing Visual</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ IMPACT / STATS ══════════════════════════════════════ -->
+  <section id="impact" class="section impact-section">
+    <div class="impact-bg-glow"></div>
+    <div class="container">
+      <div class="impact-inner">
+        <div class="impact-left reveal-left">
+          <div class="section-tag"><span class="tag-dot"></span>Brand Impact</div>
+          <h2 class="section-headline">Numbers That <span class="gradient-text">Speak</span></h2>
+          <p class="about-body">Every project we take on is a commitment to excellence. Here's what we've built together with our clients.</p>
+          <a href="#contact" class="btn-primary hover-target">
+            <span>Start Your Project</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="impact-right">
+          <div class="stats-grid">
+            <div class="stat-block glass-card reveal-up" data-delay="0">
+              <div class="stat-big"><span class="counter" data-target="80">0</span>+</div>
+              <div class="stat-label">Happy Clients</div>
+              <div class="stat-bar"><div class="stat-bar-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="stat-block glass-card reveal-up" data-delay="0.1">
+              <div class="stat-big"><span class="counter" data-target="150">0</span>+</div>
+              <div class="stat-label">Projects Delivered</div>
+              <div class="stat-bar"><div class="stat-bar-fill" style="--w:95%"></div></div>
+            </div>
+            <div class="stat-block glass-card reveal-up" data-delay="0.2">
+              <div class="stat-big"><span class="counter" data-target="98">0</span>%</div>
+              <div class="stat-label">Client Satisfaction</div>
+              <div class="stat-bar"><div class="stat-bar-fill" style="--w:98%"></div></div>
+            </div>
+            <div class="stat-block glass-card reveal-up" data-delay="0.3">
+              <div class="stat-big"><span class="counter" data-target="2">0</span>M+</div>
+              <div class="stat-label">Content Impressions</div>
+              <div class="stat-bar"><div class="stat-bar-fill" style="--w:70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ TESTIMONIALS ══════════════════════════════════════ -->
+  <section id="testimonials" class="section dark-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-tag"><span class="tag-dot"></span>Testimonials</div>
+        <h2 class="section-headline">Clients <span class="gradient-text">Love Us</span></h2>
+      </div>
+      <div class="testimonials-row">
+        <div class="testimonial-card glass-card reveal-up" data-delay="0">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-body">"Josh2Studio transformed our brand completely. The logo, website, and social content they created brought us so many new clients. Truly premium work."</p>
+          <div class="t-author">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#00f5ff,#a855f7)">AK</div>
+            <div>
+              <div class="t-name">Amara Kalu</div>
+              <div class="t-role mono-text">CEO, BrightPath Media</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card reveal-up" data-delay="0.15">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-body">"The website they built for our church ministry is stunning. People tell us all the time how professional it looks. Josh2Studio exceeded every expectation."</p>
+          <div class="t-author">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#a855f7,#3b82f6)">BO</div>
+            <div>
+              <div class="t-name">Pastor Biodun Okon</div>
+              <div class="t-role mono-text">Lead Pastor, GraceHouse</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card reveal-up" data-delay="0.3">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-body">"The content they created for our Facebook page doubled our engagement in the first month. Real results, real creativity. We won't work with anyone else."</p>
+          <div class="t-author">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#3b82f6,#00f5ff)">FN</div>
+            <div>
+              <div class="t-name">Fatima Nwosu</div>
+              <div class="t-role mono-text">Marketing Director, VisionX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ CONTACT ══════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left reveal-left">
+          <div class="section-tag"><span class="tag-dot"></span>Get In Touch</div>
+          <h2 class="section-headline">Let's Build Something <span class="gradient-text">Amazing</span></h2>
+          <p class="about-body">Ready to elevate your brand? Tell us about your project and we'll get back to you within 24 hours.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">✉</span>
+              <span>hello@josh2studio.com</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>Nigeria · Available Worldwide</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link hover-target" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link hover-target" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link hover-target" aria-label="Twitter/X">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link hover-target" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right reveal-right">
+          <div class="contact-form-wrap glass-card">
+            <div class="form-group">
+              <label class="form-label mono-text">Your Name</label>
+              <input type="text" class="form-input hover-target" placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label class="form-label mono-text">Email Address</label>
+              <input type="email" class="form-input hover-target" placeholder="john@company.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label mono-text">Service Needed</label>
+              <select class="form-input hover-target">
+                <option value="">Select a service</option>
+                <option>Graphic Design</option>
+                <option>Web Development</option>
+                <option>Content Creation</option>
+                <option>Brand Strategy</option>
+                <option>Full Package</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label mono-text">Project Details</label>
+              <textarea class="form-input form-textarea hover-target" placeholder="Tell us about your project, goals, and timeline..."></textarea>
+            </div>
+            <button class="btn-primary full-width hover-target" id="submit-btn">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">Josh2<span>Studio</span></div>
+        <p class="footer-tagline">Building digital excellence — one pixel at a time.</p>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p class="mono-text footer-copy">© 2025 Josh2Studio. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#" class="hover-target">Privacy</a>
+          <a href="#" class="hover-target">Terms</a>
+          <a href="#contact" class="hover-target">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
